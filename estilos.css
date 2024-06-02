@@ -1,0 +1,311 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-size:cover;
+    
+
+}
+
+.menu-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.menu-icon .bar {
+    width: 100%;
+    height: 4px;
+    background-color: #333;
+    transition: 0.3s;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    color: #fff;
+    transition: 0.3s;
+    z-index: 999;
+    padding-top: 60px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+}
+
+.sidebar ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar ul li a img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.3s;
+    z-index: 998;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.overlay.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.menu-icon.open .bar:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+    background-color: #fff;
+}
+
+.menu-icon.open .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-icon.open .bar:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+:root {
+    --background-light: #ffffff;
+    --background-dark: #2c2c2c;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+.container {
+    text-align: center; /*Mover el modo claro y oscuro en cordenadas"X e Y"* :V */
+    margin-top: 50px;
+    margin-left:950px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px; /* Altura de la rayita */
+    width: 20px; /* Ancho de la rayita, ajusta este valor para hacerla más delgada */
+    left: 4px; /* Ajusta este valor para mover la rayita hacia la izquierda */
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px); 
+}
+
+.slider img {
+    width: 20px;
+    height: 20px;
+}
+
+.menu-icon .bar {
+    width: 100%;
+    height: 4px;
+    background-color: var(--text-light); /* Por defecto en modo claro */
+    transition: 0.3s;
+}
+
+body.dark-mode .menu-icon .bar {
+    background-color: var(--text-dark); /* En modo oscuro */
+}
+
+
+.container2 {
+    
+    margin-top: -80px;
+    background-color:rgb(255, 6, 6);
+    width:1090px;
+    height:720px;
+}
+
+
+
+
+
+
+
+h1 {
+    color: #333;
+}
+
+.gallery {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    width: 200px;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.3s ease, filter 0.3s ease;
+}
+
+.gallery-item img:hover {
+    opacity: 0.9;
+    filter: brightness(110%);
+}
+
+.description {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    padding: 10px;
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .description {
+    opacity: 1;
+}
+
+.description h3 {
+    margin: 0;
+    font-size: 16px;
+}
+
+.description p {
+    margin: 5px 0 0;
+    font-size: 14px;
+}
+
+
+
+
+
+:root {
+    --light-bg: #ffffff;
+    --dark-bg: #545454;  /*Modificar opacidad :V*/
+}
+
+body {
+    background-color: var(--light-bg);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--dark-bg);
+}
+
+h1 {
+    color: black;
+    transition: color 0.3s;
+}
+
+body.dark-mode h1 {
+    color: white;
+}
+
+
+.xd{
+    margin-top:-30px;
+}
+
+
+/*Intento de slider :V*/
+
+
+
